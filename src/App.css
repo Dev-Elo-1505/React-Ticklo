@@ -3,8 +3,7 @@
 @theme {
     --font-inter: 'Inter', sans-serif;
     --color-primary: #5bb0fe; 
-  
-
+    --color-primaryLight: #f8fcff;
 }
 
 /* 'status-open': '#4CAF50', // green-500

@@ -1,9 +1,10 @@
 import Navbar from "./Navbar";
 import ButtonLink from "./ButtonLink";
+import wave from "../assets/wave.svg"
 
 const Hero = () => {
   return (
-    <section className="p-4 bg-primary text-white">
+    <section className="p-4 bg-linear-to-b from-primary via-primary/90 to-white text-white min-h-screen">
       <Navbar />
       <main className="flex flex-col items-center justify-center text-center min-h-[80vh] gap-4">
         <div className="text-[11px] rounded-full px-3 py-1 backdrop-blur-md bg-white/20 border border-white/30 text-white shadow-sm">
@@ -19,6 +20,7 @@ const Hero = () => {
         </p>
         <ButtonLink title="Get Started" location="/auth/signup" />
       </main>
+      <img src={wave} alt="wave" className="absolute bottom-0 left-0 w-full" />
     </section>
   );
 };
