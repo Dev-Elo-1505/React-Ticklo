@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "../lib/utils";
-
-type ButtonType = "button" | "submit" | "reset";
+import type { ButtonType } from "../types";
 
 interface ButtonLinkProps {
   title: string;
