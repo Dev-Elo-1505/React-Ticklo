@@ -20,7 +20,7 @@ const ButtonLink = ({
     <Link
       to={location}
       className={cn(
-        `bg-white text-primary p-2 rounded-full text-sm hover:opacity-90 active:scale-95 ${customClass}`
+        `bg-white text-primary p-2 rounded-full text-sm md:text-md hover:opacity-90 active:scale-95 ${customClass}`
       )}
       type={type}
     >
