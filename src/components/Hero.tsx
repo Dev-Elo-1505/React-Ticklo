@@ -4,8 +4,17 @@ import wave from "../assets/wave.svg";
 
 const Hero = () => {
   return (
-    <section className="relative p-4 md:px-12 md:py-6 bg-linear-to-b from-primary via-primary/90 to-white text-white min-h-screen">
-    
+    <section className="relative p-4 md:px-12 md:py-6 bg-linear-to-b from-primary via-primary/90 to-white text-white min-h-screen overflow-x-hidden">
+      
+      <div
+        aria-hidden={true}
+        className="hidden md:block absolute -top-8 right-0 translate-x-8 w-48 h-48 rounded-full bg-white/10 backdrop-blur-lg transform rotate-12 pointer-events-none z-0"
+      />
+      <div
+        aria-hidden={true}
+        className="md:hidden absolute -bottom-6 left-4 w-28 h-28 rounded-full bg-white/10 backdrop-blur-sm pointer-events-none z-0"
+      />
+
       <Navbar />
       <main className="flex flex-col items-center justify-center text-center min-h-[50vh] gap-4 mt-6 md:mt-0">
         <div className="text-[11px] rounded-full px-3 py-1 backdrop-blur-md bg-white/20 border border-white/30 text-white shadow-sm">
@@ -19,7 +28,11 @@ const Hero = () => {
           Ticklo streamlines ticket management, withe <a href="">Vue</a> and{" "}
           <a href="">Twig</a> versions available!
         </p>
-        <ButtonLink title="Get Started" location="/auth/signup" />
+        <ButtonLink
+          title="Get Started"
+          location="/auth/signup"
+          customClass="mb-4"
+        />
       </main>
       <img src={wave} alt="wave" className="absolute bottom-0 left-0 w-full" />
     </section>
