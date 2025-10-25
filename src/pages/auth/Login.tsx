@@ -99,7 +99,7 @@ const Login = () => {
           </div>
 
           <div
-            className="hidden md:flex items-center justify-center rounded-md"
+            className="hidden md:flex items-center justify-center rounded-md w-1/2"
             style={{
               backgroundColor: "var(--color-primary,#5bb0fe)",
               minHeight: "80vh",
