@@ -8,7 +8,12 @@ import newTicketImg from "../assets/newTicket.svg?raw";
 import Button from "../components/Button";
 import CreateTicket from "../components/CreateTicket";
 import { type Ticket } from "../types";
-import { createTicket, getTickets, updateTicket, deleteTicket } from "../utils/tickets";
+import {
+  createTicket,
+  getTickets,
+  updateTicket,
+  deleteTicket,
+} from "../utils/tickets";
 import ButtonLink from "../components/ButtonLink";
 
 const TicketsPage = () => {
@@ -95,7 +100,7 @@ const TicketsPage = () => {
 
       await Promise.resolve(logout());
       toast.showToast("You have been logged out", "success");
-      navigate("/auth/login");
+      navigate("/");
     } catch (error: any) {
       toast.showToast(error?.message ?? "Logout failed", "error");
     } finally {
@@ -105,7 +110,7 @@ const TicketsPage = () => {
   };
 
   return (
-    <div className="p-5 md:px-12 md:py-6 font-inter">
+    <div className="p-5 md:px-12 md:py-6 font-inter mx-auto max-w-[1440px]">
       <AppNavbar isLoading={loading} onLogout={() => setShowConfirm(true)} />
       <main className="mt-6 flex flex-col items-center justify-center">
         {tickets.length === 0 && (
@@ -173,16 +178,42 @@ const TicketsPage = () => {
                   className="border shadow border-white/20 rounded-md p-4 bg-white/5 flex flex-col justify-between"
                 >
                   <div>
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold">{tk.title}</h3>
-                    <div>{tk.status}</div>
-                  </div>
-                  {tk.description && <p className="mt-2 text-sm text-gray-400 truncate">{tk.description}</p>}
-                  </div>
-                    <div className="flex items-center justify-end gap-2 mt-4">
-                      <Button title="Edit" onClick={()=>requestEdit(tk)} customClass="rounded-md w-20" />
-                      <Button title="Delete" onClick={()=>requestDelete(tk)} customClass="rounded-md bg-red-500 w-20" />
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold">{tk.title}</h3>
+                      <div className="flex items-center gap-2">
+                        
+                        <span
+                          className={`px-2 py-1 rounded-full flex items-center justify-center text-xs font-semibold capitalize ${
+                            tk.status === "open"
+                              ? "bg-green-300/50 text-green-900"
+                              : tk.status === "in_progress"
+                              ? "bg-amber-300/50 text-amber-900"
+                              : "bg-gray-300/50 text-gray-900"
+                          }`}
+                        >
+                          {tk.status.replace("_", " ")}
+                        </span>
+                        
+                      </div>
                     </div>
+                    {tk.description && (
+                      <p className="mt-2 text-sm text-gray-400 truncate">
+                        {tk.description}
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-end gap-2 mt-4">
+                    <Button
+                      title="Edit"
+                      onClick={() => requestEdit(tk)}
+                      customClass="rounded-md w-20"
+                    />
+                    <Button
+                      title="Delete"
+                      onClick={() => requestDelete(tk)}
+                      customClass="rounded-md bg-red-500 w-20"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -211,7 +242,10 @@ const TicketsPage = () => {
       />
       <CreateTicket
         onOpen={showCreateTicket}
-        onCancel={() => { setShowTicket(false); setEditingTicket(null); }}
+        onCancel={() => {
+          setShowTicket(false);
+          setEditingTicket(null);
+        }}
         onCreate={handleSaveTicket}
         initialData={editingTicket}
         submitText={editingTicket ? "Update" : "Create"}

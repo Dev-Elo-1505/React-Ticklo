@@ -52,6 +52,11 @@ export async function signup({
   const session = { token, email };
   saveSession(session);
 
+
+  try {
+    window.dispatchEvent(new Event("ticketapp_auth_changed"));
+  } catch {}
+
   return session;
 }
 
@@ -78,11 +83,18 @@ export async function login({
   const token = Math.random().toString(36).slice(2);
   const session = { token, email };
   saveSession(session);
+ 
+  try {
+    window.dispatchEvent(new Event("ticketapp_auth_changed"));
+  } catch {}
   return session;
 }
 
 export function logout() {
   clearSession();
+  try {
+    window.dispatchEvent(new Event("ticketapp_auth_changed"));
+  } catch {}
 }
 
 export function getSession(): SessionData | null {
