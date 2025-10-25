@@ -4,10 +4,13 @@ import Stats from "../components/Stats";
 
 const LandingPage = () => {
   return (
-    <div className="font-inter ">
+    <div className="font-inter">
       <Hero />
-      <Features />
+      <div className="max-w-[1440px] mx-auto">
+        <Features />
       <Stats />
+      </div>
+      
     
     </div>
   );

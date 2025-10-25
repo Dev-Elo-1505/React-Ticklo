@@ -3,7 +3,7 @@ import ButtonLink from "./ButtonLink";
 
 const Navbar = () => {
   return (
-    <nav className="relative z-10 flex justify-between items-center font-inter">
+    <nav className="relative z-10 flex justify-between items-center font-inter max-w-[1440px] mx-auto p-4 md:px-12 md:py-6">
       <Link to="/" className="text-xl font-bold md:text-2xl">
         Ticklo
       </Link>

@@ -14,15 +14,19 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-  <main className="grow">
-        <Routes>
+      <div className="w-full">
+        <div className="w-full">
+          <main className="grow">
+            <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/login" element={<LoginPage />} />
           <Route path="/auth/signup" element={<SignupPage />} />
           <Route path="/dashboard" element={isAuthenticated ? <DashboardPage /> : <Navigate to="/auth/login" />} />
           <Route path="/tickets" element={isAuthenticated ? <TicketsPage /> : <Navigate to="/auth/login" />} />
-        </Routes>
-      </main>
+            </Routes>
+          </main>
+        </div>
+      </div>
 
       <Footer />
     </div>
