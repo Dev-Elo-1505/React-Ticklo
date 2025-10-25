@@ -11,6 +11,8 @@ interface ModalProps {
   onConfirm?: () => void | Promise<void>;
   onCancel?: () => void;
   loading?: boolean;
+  cancelButtonClass?: string;
+  confirmButtonClass?: string;
 }
 
 const Modal = ({
@@ -23,6 +25,8 @@ const Modal = ({
   onConfirm,
   onCancel,
   loading = false,
+  cancelButtonClass = "bg-gray-200 text-gray-800 hover:bg-gray-300",
+  confirmButtonClass = "bg-red-500 text-white",
 }: ModalProps) => {
   const cancelRef = useRef<HTMLButtonElement | null>(null);
 
@@ -66,14 +70,14 @@ const Modal = ({
         <div className="mt-4 flex gap-3">
           <Button
             title={cancelText}
-            customClass="px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300"
+            customClass={`px-4 py-2 rounded-md ${cancelButtonClass}`}
             onClick={onCancel}
             ref={cancelRef}
           />
 
           <Button
             title={confirmText}
-            customClass="px-4 py-2 rounded-md bg-red-500 text-white hover:opacity-95 disabled:opacity-50"
+            customClass={`px-4 py-2 rounded-md  hover:opacity-95 disabled:opacity-50 ${confirmButtonClass}`}
             onClick={() => {
               if (onConfirm) onConfirm();
             }}

@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="relative p-4 md:px-12 md:py-6 bg-linear-to-b from-primary via-primary/90 to-white text-white min-h-screen">
     
       <Navbar />
-      <main className="flex flex-col items-center justify-center text-center min-h-[50vh] gap-4">
+      <main className="flex flex-col items-center justify-center text-center min-h-[50vh] gap-4 mt-6 md:mt-0">
         <div className="text-[11px] rounded-full px-3 py-1 backdrop-blur-md bg-white/20 border border-white/30 text-white shadow-sm">
           World no. 1 ticket platform
         </div>
