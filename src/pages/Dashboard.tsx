@@ -63,14 +63,14 @@ const Dashboard = () => {
           <div className="flex gap-2 mb-3 md:block">
             <div className="bg-primary/10 border border-primary/30 rounded-md w-full h-32 p-2 md:p-4 md:mb-3 flex flex-col justify-between">
               <p className="flex items-center gap-2">
-                <IoTicketOutline /> Total Tickets
+                <IoTicketOutline className="text-xl" /> Total Tickets
               </p>
               <p className="text-4xl font-bold mt-2">{tickets.length}</p>
             </div>
 
             <div className="bg-[#fef2f2] border border-[#fca5a1] rounded-md w-full h-32 p-2 md:p-4 flex flex-col justify-between">
               <p className="flex items-center gap-2">
-                <IoFolderOpenOutline /> Open Tickets
+                <IoFolderOpenOutline className="text-xl" /> Open Tickets
               </p>
               <p className="text-4xl font-bold mt-2">
                 {tickets.filter((t) => t.status === "open").length}
@@ -81,7 +81,7 @@ const Dashboard = () => {
           <div className="flex gap-2 mb-3 md:block">
             <div className="bg-[#fff7ed] border border-[#f7d56f] rounded-md w-full h-32 p-2 md:p-4 md:mb-3 flex flex-col justify-between">
               <p className="flex items-center gap-2">
-                <RiProgress3Line className="text-xl" /> In Progress Tickets
+                <RiProgress3Line className="text-2xl" /> In Progress Tickets
               </p>
               <p className="text-4xl font-bold mt-2">
                 {tickets.filter((t) => t.status === "in_progress").length}
@@ -89,7 +89,7 @@ const Dashboard = () => {
             </div>
             <div className="bg-[#f0fdf4] border border-[#6fff9a] rounded-md w-full h-32 p-2 md:p-4 md:mb-3 flex flex-col justify-between">
             <p className="flex items-center gap-2">
-              <IoCheckmarkCircleOutline /> Closed Tickets
+              <IoCheckmarkCircleOutline className="text-xl" /> Closed Tickets
             </p>
             <p className="text-4xl font-bold mt-2">
               {tickets.filter((t) => t.status === "closed").length}

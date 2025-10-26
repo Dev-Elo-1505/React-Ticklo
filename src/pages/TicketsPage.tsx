@@ -159,7 +159,7 @@ const TicketsPage = () => {
                 <ButtonLink
                   title="Go to Dashboard"
                   location="/dashboard"
-                  customClass="bg-primary text-white text-center w-full md:w-32  mb-2 mt-2"
+                  customClass="bg-primary text-white text-center w-full md:w-36  mb-2 mt-2"
                 />
                 <Button
                   title="Create Ticket"
