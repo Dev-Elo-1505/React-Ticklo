@@ -27,7 +27,7 @@ const Hero = () => {
           Create Tickets! Track Tickets!
         </h1>
         <p className="text-sm w-3/4">
-          Ticklo streamlines ticket management, withe <a href="">Vue</a> and{" "}
+          Ticklo streamlines ticket management, withe <a href="https://vue-ticklo.vercel.app/" target="_blank" rel="noreferrer noopener">Vue</a> and{" "}
           <a href="">Twig</a> versions available!
         </p>
         <ButtonLink
